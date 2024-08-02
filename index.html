@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Tracker</title>
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js" defer></script>
+</head>
+<body>
+    <button id="theme-toggle">🌓</button>
+    <h1>Products sold </h1>
+    <form id="product-form">
+        <select id="product-select">
+            <option value="">Select Product</option>
+            <option value="Saca">Saca</option>
+            <option value="Tote Bag">Tote Bag</option>
+            <option value="Sacka Bag">Sacka Bag</option>
+            <option value="Plastic Bag">Plastic Bag</option>
+            <option value="Seal Tap">Seal Tap</option>
+        </select>
+        <select id="size-select">
+            <option value="">Select Size</option>
+        </select>
+        <input type="number" id="quantity" placeholder="Quantity" required min="1">
+        <input type="number" id="price" placeholder="Price (K)" required min="0" step="0.01">
+        <button type="submit">Add Product</button>
+    </form>
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price (K)</th>
+                <th>Total (K)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="export-options">
+        <button id="export-txt-btn">Export TXT</button>
+        <button id="export-pdf-btn">Export PDF</button>
+        <button id="export-csv-btn">Export CSV</button>
+    </div>
+    <script>
+  if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(registration => {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(error => {
+      console.log('Service Worker registration failed:', error);
+    });
+}
+  </script>
+    <script src="/main.js" defer></script>
+</body>
+</html>
