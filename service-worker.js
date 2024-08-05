@@ -1,11 +1,11 @@
 const CACHE_NAME = 'trakia-cache-v1';
 const urlsToCache = [
-  './',
-  './index.html',
-  './styles.css',
-  './app.js',
-  './icons/192.jpg',
-  './icons/512.jpg'
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/app.js',
+  '/icons/192.jpg',
+  '/icons/512.jpg'
 ];
 
 // Install a service worker
